@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: #16191f;
+  --color-canvas-raised: #1e222a;
+  --color-ink: #e4e7ec;
+  --color-ink-soft: #97a0ad;
+  --color-line: rgba(228, 231, 236, 0.1);
+  --color-accent: #f5a524;
+  --color-accent-ink: #1a1200;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+}
+
+:root[data-theme="light"] {
+  --color-canvas: #fafaf9;
+  --color-canvas-raised: #ffffff;
+  --color-ink: #14171c;
+  --color-ink-soft: #5b6472;
+  --color-line: rgba(20, 23, 28, 0.08);
+  --color-accent: #b45309;
+  --color-accent-ink: #ffffff;
+}
+
+html {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}

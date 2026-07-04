@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteData } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Privacy Policy — ${siteData.profile.name}`}
+  description="Privacy policy"
+  noindex
+>
+  <main class="mx-auto mt-16 max-w-7xl px-4 pb-24 sm:mt-24 sm:px-8">
+    <div class="mx-auto max-w-2xl lg:max-w-5xl lg:px-12">
+      <a href="/" class="text-sm text-accent hover:underline">← Back to loreth.co</a>
+
+      <h1 class="mt-6 font-display text-3xl font-bold tracking-tight text-ink">
+        Privacy Policy
+      </h1>
+      <p class="mt-2 text-sm text-ink-soft">Last updated 4 July 2026</p>
+
+      <div class="mt-8 space-y-8 text-base text-ink-soft">
+        <section>
+          <h2 class="font-display text-lg font-semibold text-ink">1. Controller</h2>
+          <p class="mt-2">
+            {siteData.legal.name}
+            {siteData.legal.addressLines.map((line) => <><br />{line}</>)}
+            <br />Email:{" "}
+            <a href={`mailto:${siteData.social.email}`} class="text-accent hover:underline">
+              {siteData.social.email}
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-lg font-semibold text-ink">2. Hosting</h2>
+          <p class="mt-2">
+            This site is hosted on GitHub Pages (GitHub, Inc.). Every request your
+            browser makes to load this site causes standard web server log data —
+            IP address, timestamp, requested URL, user agent, referrer — to be
+            processed on GitHub's infrastructure. This is technically necessary to
+            deliver the site and is based on legitimate interest (Art. 6(1)(f)
+            GDPR). GitHub's own privacy statement governs this processing.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-lg font-semibold text-ink">3. Analytics</h2>
+          <p class="mt-2">
+            This site uses Umami Analytics (Cloud, EU-based hosting) to
+            understand aggregate visitor numbers. Umami sets no cookies and
+            stores nothing in your browser, so no consent banner is required
+            (§ 25 TDDDG only applies when information is stored on or read from
+            your device). Your IP address is processed transiently to compute a
+            daily-rotating, non-reversible visitor hash for anonymized
+            statistics — the IP address itself is not stored. Legal basis:
+            legitimate interest in understanding site usage (Art. 6(1)(f) GDPR).
+            Processing is carried out by Umami Software, Inc. under a data
+            processing agreement (Art. 28 GDPR).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-lg font-semibold text-ink">4. External links</h2>
+          <p class="mt-2">
+            Links to GitHub and LinkedIn, and the "get in touch" email link,
+            lead to third-party services or your own email client. Once you
+            leave this site, the respective provider's own privacy policy
+            applies.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-lg font-semibold text-ink">5. Your rights</h2>
+          <p class="mt-2">
+            Under the GDPR you have the right to access, rectify, erase, or
+            restrict the processing of your personal data, to data portability,
+            and to object to processing based on legitimate interest. You also
+            have the right to lodge a complaint with a data protection
+            supervisory authority. To exercise any of these rights, contact{" "}
+            <a href={`mailto:${siteData.social.email}`} class="text-accent hover:underline">
+              {siteData.social.email}
+            </a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

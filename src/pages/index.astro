@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Andre Loreth — Software Architect & Cloud Platform Engineer"
+  description="Andre Loreth is a software architect and cloud platform engineer specializing in Google Cloud, Kubernetes, and cloud migration consulting for production systems."
+>
+  <Header />
+  <div class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 bottom-0 -z-10 mx-auto max-w-7xl px-4 sm:px-8"
+      aria-hidden="true"
+    >
+      <div
+        class="absolute inset-0"
+        style="background-image: radial-gradient(circle 150px at right 160px top 160px, color-mix(in srgb, var(--color-accent) 16%, transparent) 0%, transparent 100%), radial-gradient(circle 110px at left 120px top 420px, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 100%);"
+      >
+      </div>
+      <div
+        class="absolute inset-0 opacity-[0.07]"
+        style="background-image: radial-gradient(circle at 1px 1px, var(--color-ink-soft) 1px, transparent 0); background-size: 24px 24px; mask-image: radial-gradient(ellipse 70% 45% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 70% 45% at 50% 0%, black 30%, transparent 100%);"
+      >
+      </div>
+    </div>
+    <Hero />
+    <About />
+  </div>
+  <Experience />
+  <Projects />
+  <Skills />
+  <Footer />
+</BaseLayout>

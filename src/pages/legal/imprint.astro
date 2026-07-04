@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteData } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Imprint — ${siteData.profile.name}`}
+  description="Legal notice / imprint"
+  noindex
+>
+  <main class="mx-auto mt-16 max-w-7xl px-4 pb-24 sm:mt-24 sm:px-8">
+    <div class="mx-auto max-w-2xl lg:max-w-5xl lg:px-12">
+      <a href="/" class="text-sm text-accent hover:underline">← Back to loreth.co</a>
+
+      <h1 class="mt-6 font-display text-3xl font-bold tracking-tight text-ink">
+        Imprint
+      </h1>
+      <p class="mt-2 text-sm text-ink-soft">
+        Information pursuant to Section 5 DDG (Digitale-Dienste-Gesetz)
+      </p>
+
+      <div class="mt-8 space-y-1 text-base text-ink">
+        <p>{siteData.legal.name}</p>
+        {siteData.legal.addressLines.map((line) => <p>{line}</p>)}
+      </div>
+
+      <h2 class="mt-10 font-display text-lg font-semibold text-ink">Contact</h2>
+      <p class="mt-2 text-base text-ink-soft">
+        Email:{" "}
+        <a href={`mailto:${siteData.social.email}`} class="text-accent hover:underline">
+          {siteData.social.email}
+        </a>
+      </p>
+
+      <h2 class="mt-10 font-display text-lg font-semibold text-ink">
+        Responsible for content
+      </h2>
+      <p class="mt-2 text-base text-ink-soft">
+        Pursuant to Section 18(2) MStV (Medienstaatsvertrag): {siteData.legal.name}, address as above.
+      </p>
+    </div>
+  </main>
+</BaseLayout>

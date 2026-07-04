@@ -1,0 +1,26 @@
+{
+  "name": "loreth-co",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "yarn@4.17.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "latest",
+    "@fontsource-variable/space-grotesk": "latest",
+    "@iconify-json/simple-icons": "^1.2.88",
+    "@tailwindcss/vite": "latest",
+    "astro": "latest",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "typescript": "latest"
+  }
+}

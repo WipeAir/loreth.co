@@ -1,0 +1,23 @@
+---
+interface Props {
+  as?: "div" | "li" | "a";
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+  "data-umami-event"?: string;
+  "data-umami-event-project"?: string;
+}
+
+const { as: Tag = "div", href, target, rel, class: className = "", ...rest } = Astro.props;
+---
+
+<Tag
+  href={href}
+  target={target}
+  rel={rel}
+  class={`relative overflow-hidden rounded-2xl border border-line bg-canvas-raised p-6 ${Tag === "a" ? "" : "cursor-default"} ${className}`}
+  {...rest}
+>
+  <slot />
+</Tag>

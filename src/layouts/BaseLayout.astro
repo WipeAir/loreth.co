@@ -1,0 +1,78 @@
+---
+import "../styles/global.css";
+import { siteData } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+
+const SITE_URL = "https://loreth.co";
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const ogImageUrl = new URL("/og-image.jpg", SITE_URL).toString();
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteData.profile.name,
+  jobTitle: siteData.profile.title,
+  url: SITE_URL,
+  image: ogImageUrl,
+  email: siteData.social.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: siteData.profile.location,
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "abi group GmbH",
+  },
+  sameAs: [siteData.social.github, siteData.social.linkedin],
+  knowsAbout: siteData.skills.flatMap((group) => group.items),
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <title>{title}</title>
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    {!noindex && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    )}
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      if (stored === "light") {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="d1eebf6d-5e8e-4cad-80ea-f14124dbf8e9"
+      data-domains="loreth.co"></script>
+  </head>
+  <body class="bg-canvas text-ink font-sans antialiased min-h-screen">
+    <slot />
+  </body>
+</html>

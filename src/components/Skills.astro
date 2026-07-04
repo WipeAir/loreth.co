@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+import Section from "./Section.astro";
+import { siteData } from "../data/site";
+
+const skillIcons: Record<string, string> = {
+  TypeScript: "simple-icons:typescript",
+  "Node.js": "simple-icons:nodedotjs",
+  NestJS: "simple-icons:nestjs",
+  Java: "simple-icons:openjdk",
+  GraphQL: "simple-icons:graphql",
+  "Google Cloud Platform": "simple-icons:googlecloud",
+  Kubernetes: "simple-icons:kubernetes",
+  PostgreSQL: "simple-icons:postgresql",
+  Terraform: "simple-icons:terraform",
+  Pulumi: "simple-icons:pulumi",
+  ArgoCD: "simple-icons:argo",
+  Docker: "simple-icons:docker",
+  n8n: "simple-icons:n8n",
+};
+---
+
+<Section id="skills">
+  <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">
+    Skills
+  </h2>
+  <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    {siteData.skills.map((group) => (
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">
+          {group.label}
+        </h3>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {group.items.map((item) => (
+            <span class="flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-sm text-ink">
+              {skillIcons[item] && <Icon name={skillIcons[item]} class="h-4 w-4 shrink-0" />}
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>
