@@ -9,6 +9,7 @@ export interface SocialLinks {
   email: string;
   github: string;
   linkedin: string;
+  malt: string;
 }
 
 export interface ExperienceEntry {
@@ -63,6 +64,7 @@ export const siteData = {
     email: "work@loreth.co",
     github: "https://github.com/wipeair",
     linkedin: "https://www.linkedin.com/in/andre-loreth/",
+    malt: "https://www.malt.de/profile/andrelo",
   },
   about: [
     "I'm a software architect and cloud platform engineer with 10+ years of experience shipping production systems, most of it spent on backend architecture, Kubernetes, and Google Cloud infrastructure.",
