@@ -693,6 +693,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify-json/tabler@npm:^1.2.35":
+  version: 1.2.35
+  resolution: "@iconify-json/tabler@npm:1.2.35"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10c0/d2ea793196a15a2a0612b3a2297db1a4def9cfe5c77b0bb3d847ff2151d0544ba966df41c1e33cec2a9e0c4c712c20f6a5cebd6d5015498da6f05006ce8257b7
+  languageName: node
+  linkType: hard
+
 "@iconify/tools@npm:^4.0.5":
   version: 4.2.0
   resolution: "@iconify/tools@npm:4.2.0"
@@ -2897,6 +2906,7 @@ __metadata:
     "@fontsource-variable/inter": "npm:latest"
     "@fontsource-variable/space-grotesk": "npm:latest"
     "@iconify-json/simple-icons": "npm:^1.2.88"
+    "@iconify-json/tabler": "npm:^1.2.35"
     "@tailwindcss/vite": "npm:latest"
     astro: "npm:latest"
     astro-icon: "npm:^1.1.5"

@@ -1,5 +1,6 @@
 ---
 import Section from "./Section.astro";
+import { Icon } from "astro-icon/components";
 import { siteData } from "../data/site";
 ---
 
@@ -17,19 +18,21 @@ import { siteData } from "../data/site";
     <span class="cta-glow inline-flex rounded-full p-px">
       <a
         href="#experience"
-        class="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition hover:brightness-95"
+        class="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition hover:brightness-95"
         data-umami-event="cta-click"
         data-umami-event-cta="view-work"
       >
         View work
+        <Icon name="tabler:arrow-down" class="h-4 w-4" />
       </a>
     </span>
     <a
       href={`mailto:${siteData.social.email}`}
-      class="rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"
+      class="inline-flex items-center gap-1.5 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"
       data-umami-event="email-click"
       data-umami-event-location="hero"
     >
+      <Icon name="tabler:mail" class="h-4 w-4" />
       Get in touch
     </a>
   </div>

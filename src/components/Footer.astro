@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { siteData } from "../data/site";
 
 const year = new Date().getFullYear();
@@ -25,20 +26,22 @@ const year = new Date().getFullYear();
           href={siteData.social.github}
           target="_blank"
           rel="noopener noreferrer me"
-          class="hover:text-accent"
+          class="inline-flex items-center gap-1.5 hover:text-accent"
           data-umami-event="github-click"
           data-umami-event-location="footer"
         >
+          <Icon name="tabler:brand-github" class="h-4 w-4" />
           GitHub
         </a>
         <a
           href={siteData.social.linkedin}
           target="_blank"
           rel="noopener noreferrer me"
-          class="hover:text-accent"
+          class="inline-flex items-center gap-1.5 hover:text-accent"
           data-umami-event="linkedin-click"
           data-umami-event-location="footer"
         >
+          <Icon name="tabler:brand-linkedin" class="h-4 w-4" />
           LinkedIn
         </a>
       </div>
