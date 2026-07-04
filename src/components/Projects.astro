@@ -1,13 +1,16 @@
 ---
 import Card from "./Card.astro";
 import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
 import { siteData } from "../data/site";
 ---
 
 <Section id="projects">
-  <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">
-    Projects
-  </h2>
+  <SectionHeading>
+    <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">
+      Projects
+    </h2>
+  </SectionHeading>
   <div class="mt-8 space-y-10">
     {siteData.projects.map((group) => (
       <div>

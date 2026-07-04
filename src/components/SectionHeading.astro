@@ -1,0 +1,13 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div
+  class={`sticky top-0 z-10 flex items-baseline justify-between gap-4 bg-canvas/85 py-4 backdrop-blur ${className}`}
+>
+  <slot />
+</div>
