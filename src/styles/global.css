@@ -12,8 +12,8 @@
   --color-ink: #e4e7ec;
   --color-ink-soft: #97a0ad;
   --color-line: rgba(228, 231, 236, 0.1);
-  --color-accent: #7c8cf8;
-  --color-accent-ink: #10122b;
+  --color-accent: #52b788;
+  --color-accent-ink: #062e1a;
 
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5rem;
@@ -43,7 +43,7 @@
   --color-ink: #14171c;
   --color-ink-soft: #5b6472;
   --color-line: rgba(20, 23, 28, 0.08);
-  --color-accent: #4338ca;
+  --color-accent: #1b7a43;
   --color-accent-ink: #ffffff;
 }
 
