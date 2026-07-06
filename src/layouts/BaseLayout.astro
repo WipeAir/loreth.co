@@ -60,8 +60,16 @@ const personSchema = {
       <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     )}
     <script is:inline>
-      const stored = localStorage.getItem("theme");
-      if (stored === "light") {
+      const order = ["light", "dark", "system"];
+      const stored = localStorage.getItem("theme-mode");
+      const legacy = localStorage.getItem("theme");
+      const mode = order.includes(stored)
+        ? stored
+        : legacy === "light" || legacy === "dark"
+          ? legacy
+          : "system";
+      const isLight = mode === "light" || (mode === "system" && window.matchMedia("(prefers-color-scheme: light)").matches);
+      if (isLight) {
         document.documentElement.dataset.theme = "light";
       }
     </script>

@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import { siteData } from "../data/site";
 ---
 
-<Section id="top" class="mt-9">
+<Section id="top" class="mt-16 md:mt-20">
   <h1 class="font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
     {siteData.profile.name}
   </h1>
@@ -35,6 +35,41 @@ import { siteData } from "../data/site";
       <Icon name="tabler:mail" class="h-4 w-4" />
       Get in touch
     </a>
+    <div class="flex items-center gap-4 px-1 text-sm text-ink-soft">
+      <a
+        href={siteData.social.github}
+        target="_blank"
+        rel="noopener noreferrer me"
+        aria-label="GitHub"
+        class="transition hover:text-accent"
+        data-umami-event="github-click"
+        data-umami-event-location="hero"
+      >
+        <Icon name="tabler:brand-github" class="h-5 w-5" />
+      </a>
+      <a
+        href={siteData.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer me"
+        aria-label="LinkedIn"
+        class="transition hover:text-accent"
+        data-umami-event="linkedin-click"
+        data-umami-event-location="hero"
+      >
+        <Icon name="tabler:brand-linkedin" class="h-5 w-5" />
+      </a>
+      <a
+        href={siteData.social.malt}
+        target="_blank"
+        rel="noopener noreferrer me"
+        aria-label="Malt"
+        class="transition hover:text-accent"
+        data-umami-event="malt-click"
+        data-umami-event-location="hero"
+      >
+        <Icon name="simple-icons:malt" class="h-5 w-5" />
+      </a>
+    </div>
   </div>
 </Section>
 

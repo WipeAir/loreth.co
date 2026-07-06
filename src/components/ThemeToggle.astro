@@ -2,49 +2,101 @@
 import Icon from "./Icon.astro";
 ---
 
-<button
-  id="theme-toggle"
-  type="button"
-  aria-label="Toggle color theme"
-  class="rounded-full border border-line bg-canvas-raised p-2 text-ink-soft transition hover:text-accent"
+<div
+  id="theme-switch"
+  class="relative inline-flex items-center rounded-full border border-line bg-canvas-raised p-1"
+  role="radiogroup"
+  aria-label="Color theme"
 >
-  <Icon id="theme-toggle-sun">
-    <circle cx="12" cy="12" r="4"></circle>
-    <path
-      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-    ></path>
-  </Icon>
-  <Icon id="theme-toggle-moon" class="hidden h-5 w-5">
-    <path
-      d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646Z"
-    ></path>
-  </Icon>
-</button>
+  <span
+    id="theme-switch-thumb"
+    class="pointer-events-none absolute inset-y-1 left-1 h-7 w-7 rounded-full bg-accent transition-transform duration-200 ease-out"
+    aria-hidden="true"
+  ></span>
+  <button
+    type="button"
+    data-theme-option="light"
+    role="radio"
+    aria-label="Light theme"
+    class="theme-switch-btn relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors"
+  >
+    <Icon class="h-4 w-4">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path
+        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+      ></path>
+    </Icon>
+  </button>
+  <button
+    type="button"
+    data-theme-option="dark"
+    role="radio"
+    aria-label="Dark theme"
+    class="theme-switch-btn relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors"
+  >
+    <Icon class="h-4 w-4">
+      <path
+        d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646Z"
+      ></path>
+    </Icon>
+  </button>
+  <button
+    type="button"
+    data-theme-option="system"
+    role="radio"
+    aria-label="System theme"
+    class="theme-switch-btn relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-ink-soft transition-colors"
+  >
+    <Icon class="h-4 w-4">
+      <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+      <path d="M8 20h8M12 16v4"></path>
+    </Icon>
+  </button>
+</div>
 
 <script is:inline>
   (function () {
-    const toggle = document.getElementById("theme-toggle");
-    const sun = document.getElementById("theme-toggle-sun");
-    const moon = document.getElementById("theme-toggle-moon");
+    const root = document.documentElement;
+    const container = document.getElementById("theme-switch");
+    const thumb = document.getElementById("theme-switch-thumb");
+    const buttons = container ? Array.from(container.querySelectorAll("[data-theme-option]")) : [];
+    const media = window.matchMedia("(prefers-color-scheme: light)");
+    const order = ["light", "dark", "system"];
 
-    function syncIcons() {
-      const isLight = document.documentElement.dataset.theme === "light";
-      sun?.classList.toggle("hidden", isLight);
-      moon?.classList.toggle("hidden", !isLight);
+    function getStoredMode() {
+      const stored = localStorage.getItem("theme-mode");
+      if (order.includes(stored)) return stored;
+      const legacy = localStorage.getItem("theme");
+      if (legacy === "light" || legacy === "dark") return legacy;
+      return "system";
+    }
+    function isLightFor(mode) {
+      return mode === "light" || (mode === "system" && media.matches);
+    }
+    function applyTheme(mode) {
+      if (isLightFor(mode)) root.dataset.theme = "light";
+      else delete root.dataset.theme;
+    }
+    function syncUI(mode) {
+      const index = order.indexOf(mode);
+      if (thumb && index >= 0) thumb.style.transform = `translateX(${index * 100}%)`;
+      buttons.forEach((btn) => {
+        const active = btn.dataset.themeOption === mode;
+        btn.setAttribute("aria-checked", String(active));
+        btn.classList.toggle("text-accent-ink", active);
+        btn.classList.toggle("text-ink-soft", !active);
+      });
+    }
+    function setMode(mode) {
+      localStorage.setItem("theme-mode", mode);
+      applyTheme(mode);
+      syncUI(mode);
     }
 
-    toggle?.addEventListener("click", () => {
-      const isLight = document.documentElement.dataset.theme === "light";
-      if (isLight) {
-        delete document.documentElement.dataset.theme;
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.documentElement.dataset.theme = "light";
-        localStorage.setItem("theme", "light");
-      }
-      syncIcons();
+    buttons.forEach((btn) => btn.addEventListener("click", () => setMode(btn.dataset.themeOption)));
+    media.addEventListener("change", () => {
+      if (getStoredMode() === "system") applyTheme("system");
     });
-
-    syncIcons();
+    syncUI(getStoredMode());
   })();
 </script>
