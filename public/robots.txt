@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /legal/
-Disallow: /cv.pdf
 
 Sitemap: https://loreth.co/sitemap.xml
