@@ -37,6 +37,8 @@ function renderSkills(): string {
 
 function renderContact(): string {
   return [
+    siteData.contact.invitation,
+    "",
     `- Email: [${siteData.social.email}](mailto:${siteData.social.email})`,
     `- GitHub: ${siteData.social.github}`,
     `- LinkedIn: ${siteData.social.linkedin}`,

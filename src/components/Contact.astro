@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon/components";
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import { siteData } from "../data/site";
+---
+
+<Section id="contact">
+  <SectionHeading>
+    <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">
+      Get in touch
+    </h2>
+  </SectionHeading>
+  <div class="mt-8 max-w-2xl">
+    <p class="text-base text-ink-soft">{siteData.contact.invitation}</p>
+    <div class="mt-6 flex flex-wrap items-center gap-4">
+      <a
+        href={`mailto:${siteData.social.email}`}
+        class="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition hover:brightness-95"
+        data-umami-event="email-click"
+        data-umami-event-location="contact"
+      >
+        <Icon name="tabler:mail" class="h-4 w-4" />
+        {siteData.social.email}
+      </a>
+      <a
+        href={siteData.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer me"
+        class="inline-flex items-center gap-1.5 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"
+        data-umami-event="linkedin-click"
+        data-umami-event-location="contact"
+      >
+        <Icon name="tabler:brand-linkedin" class="h-4 w-4" />
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</Section>

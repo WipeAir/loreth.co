@@ -37,6 +37,10 @@ export interface SkillGroup {
   items: string[];
 }
 
+export interface ContactInfo {
+  invitation: string;
+}
+
 export interface LegalInfo {
   name: string;
   addressLines: string[];
@@ -49,15 +53,16 @@ export interface SiteData {
   experience: ExperienceEntry[];
   projects: ProjectGroup[];
   skills: SkillGroup[];
+  contact: ContactInfo;
   legal: LegalInfo;
 }
 
 export const siteData = {
   profile: {
     name: "Andre Loreth",
-    title: "Software Architect · Platform & Cloud Engineer",
+    title: "Software Architect · Fullstack & Cloud",
     tagline:
-      "I design and operate production-grade cloud platforms — from architecture decisions to the CI/CD pipelines that ship them.",
+      "I build products end to end, from the interface people actually use down to the cloud platform it runs on, and I stay long enough that the team can run it themselves.",
     location: "Germany",
   },
   social: {
@@ -67,9 +72,9 @@ export const siteData = {
     malt: "https://www.malt.de/profile/andrelo",
   },
   about: [
-    "I'm a software architect and cloud platform engineer with 10+ years of experience shipping production systems, most of it spent on backend architecture, Kubernetes, and Google Cloud infrastructure.",
-    "Today I run abi group, a small consultancy where I take technical ownership of client platforms end-to-end — Kubernetes architecture, cloud migration consulting, and the CI/CD infrastructure work that keeps things running long after the kickoff meeting is forgotten.",
-    "Before consulting full-time, I spent years building and operating my own web platforms and open-source tools, some of which are still quietly serving traffic I set up long ago. I like systems that are simple enough to reason about and boring enough to trust.",
+    "I started building websites in 2014, a while before I had any business running them. It was a lot of fun back then, experimenting with that. By 2016 I was doing an apprenticeship at a software company instead of going to university, which is where I learned to do this properly. Ten years later I'm a software engineer and architect: mostly TypeScript, React, Node.js and a lot of Kubernetes.",
+    "These days I run abi group, a small consultancy firm. I take on the technical side of a client's product: the app itself, the infrastructure layer underneath it, and all the CI/CD automation work nobody got around to. What I actually care about is that the team can keep running it once I'm gone, which is an odd thing to optimize for as a consultant, but it's the only version of this job I really enjoy.",
+    "I have some opinions about boring software. Systems should be simple enough to explain to whoever is on call next, and dull enough that nobody has to sit and watch them. I've built the clever kind too, and then had to maintain it.",
   ],
   experience: [
     {
@@ -121,47 +126,47 @@ export const siteData = {
   ],
   projects: [
     {
-      label: "Client & Platform Work",
+      label: "Client & Product Work",
       projects: [
         {
           name: "evmquery",
           description:
-            "Hosted MCP server for querying EVM smart contract state through CEL expressions. Designed, built, and operated as a product — multi-chain backend, custom OAuth 2.1 flow, rate limiting, and billing included.",
+            "A hosted MCP server for querying EVM smart contract state through CEL expressions, with a multi-chain backend.",
           link: "",
           tags: ["MCP", "TypeScript", "OAuth 2.1", "Kubernetes"],
         },
         {
           name: "ESG Data Platform",
           description:
-            "Architecture and implementation of a data platform for institutional real estate portfolio management. Regulated environment, production-grade from day one.",
+            "Worked on the architecture and implementation of a data platform for managing institutional real estate portfolios. A regulated environment, so it had to hold up in production from the start.",
           link: "",
           tags: ["GCP", "Architecture", "PostgreSQL"],
         },
         {
           name: "Cloud Migration — Digital Investment Platform",
           description:
-            "Cloud migration consulting for a digital investment platform: containerized workloads on Kubernetes, rebuilt deployment pipelines, and an infrastructure setup the internal team can operate without me.",
+            "Helped a digital investment platform move to the cloud: containerized workloads on Kubernetes, rebuilt deployment pipelines, and a setup the internal team runs on their own now.",
           link: "",
           tags: ["GCP", "Kubernetes", "CI/CD"],
         },
         {
           name: "Document Intelligence Pipeline",
           description:
-            "End-to-end document processing: LLM classification, human-in-the-loop review via Slack/Telegram, and audit-proof filing into DATEV-connected workflows. Runs in production on EU infrastructure, several hundred documents a month.",
+            "Document processing from intake to filing: LLM classification, a human-in-the-loop review step, and audit-proof archiving. Runs in production, a few hundred documents a month.",
           link: "",
           tags: ["LLM", "Automation", "GoBD/GDPR"],
         },
         {
           name: "White-Label E-Commerce Platform",
           description:
-            "Design and operation of a scalable, multi-tenant e-commerce solution for SME clients — one codebase, isolated tenants, boring deployments.",
+            "A multi-tenant e-commerce platform for SME clients: one codebase, each tenant kept separate, and deployments that stay uneventful.",
           link: "",
           tags: ["Backend", "Cloud", "Multi-tenant"],
         },
         {
           name: "High-Traffic Web Platforms (2014–2022)",
           description:
-            "Built and operated my own web platforms serving tens of millions of monthly pageviews. Architecture, development, and operations in one pair of hands — where I learned that systems should run without being watched.",
+            "My own web platforms, at tens of millions of pageviews a month. Building and running them at the same time is where I learned to make things that don't need watching.",
           link: "",
           tags: ["Scaling", "Caching", "Operations"],
         },
@@ -189,7 +194,7 @@ export const siteData = {
         {
           name: "nestjs-commons",
           description:
-            "A collection of shared NestJS packages — configuration, Hatchet integration, file storage, and more.",
+            "A collection of shared NestJS packages: configuration, Hatchet integration, file storage, and more.",
           link: "https://github.com/abinnovision/nestjs-commons",
           stars: 63,
           tags: ["TypeScript", "NestJS"],
@@ -197,7 +202,7 @@ export const siteData = {
         {
           name: "abinnovision/actions",
           description:
-            "Reusable GitHub Actions workflows powering our monorepo CI/CD. The standards behind \"deployments as routine, not events.\"",
+            "Reusable GitHub Actions workflows behind our monorepo CI/CD. Mostly an attempt to make deployments routine enough that nobody has to think about them.",
           link: "https://github.com/abinnovision/actions",
           tags: ["GitHub Actions", "CI/CD"],
         },
@@ -208,6 +213,10 @@ export const siteData = {
     {
       label: "Languages & Backend",
       items: ["TypeScript", "Node.js", "NestJS", "Java", "GraphQL"],
+    },
+    {
+      label: "Frontend",
+      items: ["React", "Next.js", "Astro", "Vue", "Tailwind CSS"],
     },
     {
       label: "Cloud & Infrastructure",
@@ -245,6 +254,10 @@ export const siteData = {
       ],
     },
   ],
+  contact: {
+    invitation:
+      "If you have something half-formed and you're not sure yet what it needs, that's usually a good conversation to have. I'm happy to look at it with you first, and I don't mind saying when I'm not the right person for it.",
+  },
   legal: {
     name: "Andre Loreth",
     addressLines: [
