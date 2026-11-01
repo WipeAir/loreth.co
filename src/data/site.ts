@@ -62,7 +62,7 @@ export const siteData = {
     name: "Andre Loreth",
     title: "Software Architect · Fullstack & Cloud",
     tagline:
-      "I build products end to end, from the interface people actually use down to the cloud platform it runs on, and I stay long enough that the team can run it themselves.",
+      "Fullstack engineer and architect. I build products end to end and leave teams that can run them.",
     location: "Germany",
   },
   social: {
@@ -72,9 +72,7 @@ export const siteData = {
     malt: "https://www.malt.de/profile/andrelo",
   },
   about: [
-    "I started building websites in 2014, a while before I had any business running them. It was a lot of fun back then, experimenting with that. By 2016 I was doing an apprenticeship at a software company instead of going to university, which is where I learned to do this properly. Ten years later I'm a software engineer and architect: mostly TypeScript, React, Node.js and a lot of Kubernetes.",
-    "These days I run abi group, a small consultancy firm. I take on the technical side of a client's product: the app itself, the infrastructure layer underneath it, and all the CI/CD automation work nobody got around to. What I actually care about is that the team can keep running it once I'm gone, which is an odd thing to optimize for as a consultant, but it's the only version of this job I really enjoy.",
-    "I have some opinions about boring software. Systems should be simple enough to explain to whoever is on call next, and dull enough that nobody has to sit and watch them. I've built the clever kind too, and then had to maintain it.",
+    "Building since 2014, ten years in. Today I run abi group, a small consultancy, and take on the technical side of a client's product: the app, the infrastructure under it, the CI/CD nobody got around to. I prefer systems dull enough that nobody has to watch them.",
   ],
   experience: [
     {
@@ -82,18 +80,7 @@ export const siteData = {
       role: "Managing Director & Software Architect",
       dateRange: "02/2023 — Present",
       bullets: [
-        "Technical ownership of client system architectures, from concept through production",
-        "Defined engineering standards, CI/CD workflows, and deployment strategies across containerized environments",
-        "Selected engagements: an ESG data platform for institutional real estate, cloud migration for a digital investment platform, and a scalable white-label e-commerce solution",
-      ],
-    },
-    {
-      company: "Independent Consultant",
-      role: "Software & Platform Engineer (Part-time / Project-based)",
-      dateRange: "12/2021 — 01/2023",
-      bullets: [
-        "Backend development and platform modernization embedded in client engineering teams",
-        "Managed GCP infrastructure and optimized CI/CD deployment workflows",
+        "Architecture and technical ownership of client products, from concept to production",
       ],
     },
     {
@@ -101,27 +88,20 @@ export const siteData = {
       role: "Software Developer",
       dateRange: "08/2021 — 01/2023",
       bullets: [
-        "Built and maintained microservices in the insurance domain",
-        "Enhanced an internal developer portal (Backstage) and enabled multi-cloud workflows across AWS, GCP, and Azure",
+        "Microservices in insurance, Backstage developer portal, multi-cloud on AWS, GCP and Azure",
       ],
     },
     {
       company: "AurityLab UG",
       role: "Co-Founder & Managing Director",
       dateRange: "01/2018 — 12/2022",
-      bullets: [
-        "Designed and operated multiple web platforms and MVP products",
-        "Led product architecture, backend implementation, and deployment end-to-end",
-      ],
+      bullets: ["Co-founded and ran web platforms and MVPs end to end"],
     },
     {
       company: "ADITO Software GmbH",
-      role: "Software Developer (incl. 3-year apprenticeship)",
+      role: "Software Developer",
       dateRange: "09/2016 — 07/2021",
-      bullets: [
-        "Built CRM platform features and data visualization components",
-        "Introduced automated testing (Cypress, JUnit) and led caching-based performance optimization",
-      ],
+      bullets: [],
     },
   ],
   projects: [
@@ -131,44 +111,30 @@ export const siteData = {
         {
           name: "evmquery",
           description:
-            "A hosted MCP server for querying EVM smart contract state through CEL expressions, with a multi-chain backend.",
+            "A hosted MCP server for querying EVM smart contract state through CEL expressions.",
           link: "",
-          tags: ["MCP", "TypeScript", "OAuth 2.1", "Kubernetes"],
+          tags: ["MCP", "TypeScript", "Kubernetes"],
         },
         {
           name: "ESG Data Platform",
           description:
-            "Worked on the architecture and implementation of a data platform for managing institutional real estate portfolios. A regulated environment, so it had to hold up in production from the start.",
+            "Architecture and build for a regulated real estate data platform on GCP.",
           link: "",
           tags: ["GCP", "Architecture", "PostgreSQL"],
         },
         {
-          name: "Cloud Migration — Digital Investment Platform",
+          name: "Cloud Migration",
           description:
-            "Helped a digital investment platform move to the cloud: containerized workloads on Kubernetes, rebuilt deployment pipelines, and a setup the internal team runs on their own now.",
+            "Moved an investment platform to Kubernetes with pipelines the team now runs alone.",
           link: "",
           tags: ["GCP", "Kubernetes", "CI/CD"],
         },
         {
           name: "Document Intelligence Pipeline",
           description:
-            "Document processing from intake to filing: LLM classification, a human-in-the-loop review step, and audit-proof archiving. Runs in production, a few hundred documents a month.",
+            "LLM classification with human review and audit-proof archiving, in production.",
           link: "",
           tags: ["LLM", "Automation", "GoBD/GDPR"],
-        },
-        {
-          name: "White-Label E-Commerce Platform",
-          description:
-            "A multi-tenant e-commerce platform for SME clients: one codebase, each tenant kept separate, and deployments that stay uneventful.",
-          link: "",
-          tags: ["Backend", "Cloud", "Multi-tenant"],
-        },
-        {
-          name: "High-Traffic Web Platforms (2014–2022)",
-          description:
-            "My own web platforms, at tens of millions of pageviews a month. Building and running them at the same time is where I learned to make things that don't need watching.",
-          link: "",
-          tags: ["Scaling", "Caching", "Operations"],
         },
       ],
     },
@@ -199,64 +165,34 @@ export const siteData = {
           stars: 63,
           tags: ["TypeScript", "NestJS"],
         },
-        {
-          name: "abinnovision/actions",
-          description:
-            "Reusable GitHub Actions workflows behind our monorepo CI/CD. Mostly an attempt to make deployments routine enough that nobody has to think about them.",
-          link: "https://github.com/abinnovision/actions",
-          tags: ["GitHub Actions", "CI/CD"],
-        },
       ],
     },
   ],
   skills: [
     {
-      label: "Languages & Backend",
-      items: ["TypeScript", "Node.js", "NestJS", "Java", "GraphQL"],
-    },
-    {
-      label: "Frontend",
-      items: ["React", "Next.js", "Astro", "Vue", "Tailwind CSS"],
-    },
-    {
-      label: "Cloud & Infrastructure",
+      label: "Fullstack",
       items: [
-        "Google Cloud Platform",
-        "Kubernetes",
+        "TypeScript",
+        "Node.js",
+        "NestJS",
+        "React",
+        "Next.js",
+        "GraphQL",
         "PostgreSQL",
-        "CloudNativePG",
-        "Terraform",
-        "Pulumi",
-        "ArgoCD",
-        "Docker",
-        "CI/CD",
       ],
     },
     {
-      label: "AI & Automation",
-      items: [
-        "LLM Integration",
-        "MCP (Model Context Protocol)",
-        "Document Pipelines",
-        "n8n",
-        "Human-in-the-Loop Workflows",
-      ],
+      label: "Cloud",
+      items: ["Google Cloud Platform", "Kubernetes", "Terraform", "ArgoCD", "CI/CD"],
     },
     {
-      label: "Architecture",
-      items: [
-        "API Design",
-        "Event-Driven Systems",
-        "Backend Systems",
-        "Infrastructure Automation",
-        "System Modernization",
-        "Cloud Solutions Architecture",
-      ],
+      label: "AI",
+      items: ["LLM Integration", "MCP (Model Context Protocol)"],
     },
   ],
   contact: {
     invitation:
-      "If you have something half-formed and you're not sure yet what it needs, that's usually a good conversation to have. I'm happy to look at it with you first, and I don't mind saying when I'm not the right person for it.",
+      "Have something half-formed? Happy to look at it with you, and to say so if I'm not the right fit.",
   },
   legal: {
     name: "Andre Loreth",

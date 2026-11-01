@@ -10,8 +10,9 @@ function renderAbout(): string {
 function renderExperience(): string {
   return siteData.experience
     .map((entry) => {
+      const heading = `### ${entry.company} — ${entry.role} (${entry.dateRange})`;
       const bullets = entry.bullets.map((bullet) => `- ${bullet}`).join("\n");
-      return `### ${entry.company} — ${entry.role} (${entry.dateRange})\n${bullets}`;
+      return bullets ? `${heading}\n${bullets}` : heading;
     })
     .join("\n\n");
 }

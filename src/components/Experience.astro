@@ -33,9 +33,11 @@ const glowPositions = [
             <p class="text-sm text-ink-soft">{role.dateRange}</p>
           </div>
           <p class="mt-1 text-sm text-accent">{role.role}</p>
-          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-ink-soft">
-            {role.bullets.map((bullet) => <li>{bullet}</li>)}
-          </ul>
+          {role.bullets.length > 0 && (
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-ink-soft">
+              {role.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          )}
         </div>
       </Card>
     ))}
